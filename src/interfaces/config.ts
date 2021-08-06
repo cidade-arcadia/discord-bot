@@ -1,6 +1,7 @@
 export interface Config {
   token: string
   prefix: string
-  adminRole: number
-  modRoles: number[]
+  adminRole: string
+  modRoles: string[]
+  guildId: string
 }
