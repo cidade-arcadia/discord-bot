@@ -9,5 +9,7 @@ export interface Command {
   name: string
   description?: string
   aliases?: string[]
+  isAdminCmd?: boolean
+  isModCmd?: boolean
   run: Run
 }

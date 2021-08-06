@@ -1,14 +1,16 @@
 import { Client, Collection } from "discord.js"
 import path from "path"
 import { readdirSync } from "fs"
-import { Command, Event, Config } from "../interfaces"
+import { Command, Event, Config, Controller } from "../interfaces"
 import { globalConfig } from "../config"
 
 class BotClient extends Client {
   public commands: Collection<string, Command> = new Collection()
+  public controllers: Collection<string, Controller> = new Collection()
   public aliases: Collection<string, Command> = new Collection()
   public events: Collection<string, Event> = new Collection()
   public config: Config = globalConfig
+  public controllerList: any[] = []
 
   public async start() {
     // Login to the BOT using the token credentials
@@ -26,6 +28,19 @@ class BotClient extends Client {
         if (command?.aliases.length !== 0) {
           command.aliases.forEach((alias) => this.aliases.set(alias, command))
         }
+      }
+    })
+
+    /* Commands */
+    const controllerPath = path.join(__dirname, "..", "controllers")
+    readdirSync(controllerPath).forEach((dir) => {
+      const controllers = readdirSync(`${controllerPath}/${dir}`).filter(
+        (file) => file.endsWith(".ts"),
+      )
+      for (const file of controllers) {
+        const { controller } = require(`${controllerPath}/${dir}/${file}`)
+        this.controllers.set(controller.name, controller)
+        this.controllerList.push(controller)
       }
     })
 
