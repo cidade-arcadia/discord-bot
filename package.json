@@ -14,6 +14,7 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
+    "start": "ts-node src/index.ts",
     "dev": "ts-node-dev --respawn --transpile-only --poll ./src/index.ts"
   }
 }
