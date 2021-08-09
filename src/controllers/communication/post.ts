@@ -16,9 +16,9 @@ export const controller: Controller = {
 
   run: async (client, interaction: CommandInteraction, args) => {
     const [channelId] = args
-    const channel: TextChannel = client.channels.cache.get(
+    const channel: TextChannel = (await client.channels.fetch(
       channelId,
-    ) as TextChannel
+    )) as TextChannel
     interaction.followUp({
       content: "Agora Envie a mensagem que deseja transmitir a este canal",
     })

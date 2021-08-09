@@ -31,7 +31,7 @@ class BotClient extends Client {
       }
     })
 
-    /* Commands */
+    /* Controllers */
     const controllerPath = path.join(__dirname, "..", "controllers")
     readdirSync(controllerPath).forEach((dir) => {
       const controllers = readdirSync(`${controllerPath}/${dir}`).filter(

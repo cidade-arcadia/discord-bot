@@ -6,5 +6,8 @@ export const globalConfig: Config = {
   prefix: process.env.DISCORD_BOT_PREFIX,
   adminRole: getAdminRole(),
   modRoles: getModRoles(),
-  guildId: process.env.DISCORD_BOT_GUILD_ID
+  guildId: process.env.DISCORD_BOT_GUILD_ID,
+  joinChannelId: process.env.DISCORD_BOT_JOIN_CHANNEL_ID,
+  joinRoleId: process.env.DISCORD_BOT_JOIN_ROLE_ID,
+  memberRoleId: process.env.DISCORD_BOT_MEMBER_ROLE_ID,
 }

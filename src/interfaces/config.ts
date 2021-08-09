@@ -4,4 +4,7 @@ export interface Config {
   adminRole: string
   modRoles: string[]
   guildId: string
+  joinChannelId: string
+  joinRoleId: string
+  memberRoleId: string
 }
