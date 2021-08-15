@@ -8,7 +8,7 @@ export const event: Event = {
     if (message.author.bot || !message.content.startsWith(client.config.prefix))
       return
     const args = message.content
-      .slice(client.config.prefix.length)
+      .slice(client.config.prefix.length) 
       .trim()
       .split(/ +/g)
     const cmd = args.shift().toLowerCase()

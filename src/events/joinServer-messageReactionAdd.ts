@@ -24,6 +24,7 @@ export const event: Event = {
     const roleToRemove = await guild.roles.fetch(client.config.joinRoleId)
     const roleToAdd = await guild.roles.fetch(client.config.memberRoleId)
     const authorUser = await client.users.fetch(reaction.message.author.id)
+    
     if (reaction.emoji.name === "✅") {
       authorMember.roles.add(roleToAdd)
       authorMember.roles.remove(roleToRemove)

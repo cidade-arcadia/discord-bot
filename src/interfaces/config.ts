@@ -7,4 +7,8 @@ export interface Config {
   joinChannelId: string
   joinRoleId: string
   memberRoleId: string
+  pvpRecruitID: string
+  pveRecruitID: string
+  recruitMessageID: string
+  recruitChannelID: string
 }
